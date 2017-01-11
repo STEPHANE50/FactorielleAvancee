@@ -4,9 +4,7 @@ package co.simplon.factorielle;
  * Factorielle
  */
 public class FactorielleUnvailableException extends Exception {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 
 
