@@ -1,5 +1,6 @@
 package co.simplon.factorielle;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -7,11 +8,9 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import static org.hamcrest.MatcherAssert.assertThat;
+
+import static org.junit.Assert.*;
 
 public class FactorielleTest {
 
@@ -47,8 +46,7 @@ public class FactorielleTest {
 	@Test
 	public void factorielle_de_3_doit_renvoyer_6() {
 		// Si le test échoue, je peux afficher un message personnalisé
-		assertEquals("Le résultat pour 3 devrait être 6.", 6,
-				factorielle.calculer(3));
+		assertEquals("Le résultat pour 3 devrait être 6.", 6, factorielle.calculer(3));
 	}
 
 	@Test
@@ -69,18 +67,18 @@ public class FactorielleTest {
 	public void test_en_cours_de_construction() {
 		// je verrais ca demain
 	}
-	
+
 	@Test(expected = IllegalArgumentException.class)
 	public void factorielle_d_un_nombre_negatif_doit_declencher_une_exception() {
 		factorielle.calculer(-1);
 	}
-	
-	@Test(timeout=1) 
+
+	@Test(timeout = 1)
 	public void factorielle_18_repete_100_fois_doit_sexecuter_en_moints_de_10_ms() {
-		for (int i = 1 ; i<= 100 ; i++)
+		for (int i = 1; i <= 100; i++)
 			factorielle.calculer(18);
 	}
-	
+
 	@Test
 	public void factorielle_de_18_doit_renvoyer_6402373705728000_avec_hamcrest() {
 		// GIVEN
@@ -93,6 +91,13 @@ public class FactorielleTest {
 		// THEN
 		assertThat(resultat, equalTo(resultatAttendu));
 		assertThat(resultat == resultatAttendu, is(true));
+	}
+
+	@Test(expected = UnsupportedOperationException.class)
+	public void factorielle_d_un_long_out_of_range_doit_declencher_une_exception() {
+		//long n = 50;
+		factorielle.calculer(50);
+		fail();
 	}
 
 }
