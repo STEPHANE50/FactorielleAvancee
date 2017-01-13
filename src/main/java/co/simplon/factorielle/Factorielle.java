@@ -1,11 +1,16 @@
 package co.simplon.factorielle;
 
+import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 public class Factorielle {
 	public Factorielle() {
 		super();
 	}
 
-	public long calculer(long n) throws FactorielleUnvailableException {
+	public long calculer(long n){// throws FactorielleUnvailableException {
 
 		if (n > 1) {
 			long fact = n * calculer(n - 1);
@@ -20,6 +25,13 @@ public class Factorielle {
 
 	}
 
+	@Test
+	public void factorielle_de_0_doit_renvoyer_1() throws FactorielleUnvailableException {
+		// si le test ne passe pas, je n'ai pas de message clair m'indiquant ce
+		// qui était attendu et ce qui a été évalué
+		assertTrue(calculer(0) == 1);
+		assertFalse(calculer(0) != 1);
+	}
 }
 /*import java.math.BigInteger;
 import java.util.Scanner;

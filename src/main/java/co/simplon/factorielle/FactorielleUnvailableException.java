@@ -3,12 +3,12 @@ package co.simplon.factorielle;
 /**
  * Factorielle
  */
-public class FactorielleUnvailableException extends Exception {
+public class FactorielleUnvailableException extends RuntimeException {
 	
 	private static final long serialVersionUID = 1L;
 
 
-	public FactorielleUnvailableException() {
+	public FactorielleUnvailableException(){
 		super();
 	}
 
